@@ -1,0 +1,34 @@
+<PISI>
+    <Source>
+        <Name>luajit-filesystem</Name>
+        <Packager>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <PartOf>programming.library</PartOf>
+        <Summary xml:lang="en">Lua File System library for the LuaJIT runtime</Summary>
+        <Description xml:lang="en">LuaFileSystem is a Lua library developed to complement the set of functions related to file systems offered by the standard Lua distribution.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>luajit-filesystem</Name>
+        <Summary xml:lang="en">Lua File System library for the LuaJIT runtime</Summary>
+        <Description xml:lang="en">LuaFileSystem is a Lua library developed to complement the set of functions related to file systems offered by the standard Lua distribution.
+</Description>
+        <PartOf>programming.library</PartOf>
+        <Files>
+            <Path fileType="library">/usr/lib/lua/5.1/lfs.so</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2018-05-11</Date>
+            <Version>1.7.0.2</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

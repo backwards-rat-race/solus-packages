@@ -1,0 +1,27 @@
+name        : lua51-penlight
+version     : 1.5.4
+release     : 1
+source      :
+    - https://github.com/stevedonovan/Penlight/archive/1.5.4.tar.gz : c0bcbb0874fb559ab0a3de30a21244799b7fdf8b81b34a3df0493b12ee7a5ff1
+license     :
+    - MIT
+summary     : Penlight Lua Libraries for the lua 5.1 runtime
+component   : programming.library
+description : |
+  A set of pure Lua libraries focusing on input data handling (such as reading configuration files), 
+  functional programming (such as map, reduce, placeholder expressions,etc), and OS path management.
+  Much of the functionality is inspired by the Python standard libraries.
+builddeps:
+  - lua51-devel
+  - lua51-filesystem
+rundeps:
+  - lua51
+  - lua51-filesystem
+check       : |
+    LUA_PATH="${PWD}/lua/?/init.lua;${PWD}/lua/?.lua;$(lua5.1 -e 'print(package.path)')" lua5.1 run.lua
+install     : |
+    export pkgname=lua51-penlight
+    install -Dm 644 lua/pl/* -t $installdir/usr/share/lua/5.1/pl
+    install -Dm 644 CONTRIBUTING.md CHANGES.md README.md -t $installdir/usr/share/doc/$pkgname
+    install -Dm 644 doc/manual/* -t $installdir/usr/share/doc/$pkgname/manual
+    install -Dm 644 examples/* -t $installdir/usr/share/doc/$pkgname/examples

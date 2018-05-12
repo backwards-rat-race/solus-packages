@@ -1,0 +1,21 @@
+name        : lua51-filesystem
+version     : 1.7.0.2
+release     : 1
+source      :
+    - https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz : 23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59
+license     :
+    - MIT
+summary     : LuaFileSystem library for the lua 5.1 runtime
+component   : programming.library
+description : |
+  LuaFileSystem is a Lua library developed to complement the set of functions related to file systems offered by the standard Lua distribution.
+builddeps:
+  - lua51-devel
+rundeps:
+  - lua51
+build       : |
+    %make LUA_INC="/usr/include/lua5.1/"
+check       : |
+    LUA_CPATH=./src/?.so lua5.1 tests/test.lua
+install     : |
+    %make_install PREFIX='$(DESTDIR)/usr'

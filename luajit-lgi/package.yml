@@ -1,0 +1,19 @@
+name        : luajit-lgi
+version     : 0.9.2
+release     : 1
+source      :
+    - https://github.com/pavouk/lgi/archive/0.9.2.tar.gz : cfc4105482b4730b3a40097c9d9e7e35c46df2fb255370bdeb2f45a886548c4f
+license     :
+    - MIT
+summary     : Dynamic Lua binding to GObject libraries using GObject-Introspection
+description : |
+  LGI is gobject-introspection based dynamic Lua binding to GObject based libraries. It allows using GObject-based libraries directly from Lua.
+builddeps:
+  - luajit-devel
+  - gobject-introspection-devel
+rundeps:
+  - luajit
+build       : |
+    %make LUA_INCDIR="/usr/include/luajit-2.0/" LUA_CFLAGS="$(pkg-config --cflags luajit) -O2"
+install     : |
+    %make_install PREFIX=/usr

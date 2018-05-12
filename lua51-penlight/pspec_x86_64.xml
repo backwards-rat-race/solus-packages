@@ -1,0 +1,77 @@
+<PISI>
+    <Source>
+        <Name>lua51-penlight</Name>
+        <Packager>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <PartOf>programming.library</PartOf>
+        <Summary xml:lang="en">Penlight Lua Libraries for the lua 5.1 runtime</Summary>
+        <Description xml:lang="en">A set of pure Lua libraries focusing on input data handling (such as reading configuration files), 
+functional programming (such as map, reduce, placeholder expressions,etc), and OS path management.
+Much of the functionality is inspired by the Python standard libraries.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>lua51-penlight</Name>
+        <Summary xml:lang="en">Penlight Lua Libraries for the lua 5.1 runtime</Summary>
+        <Description xml:lang="en">A set of pure Lua libraries focusing on input data handling (such as reading configuration files), 
+functional programming (such as map, reduce, placeholder expressions,etc), and OS path management.
+Much of the functionality is inspired by the Python standard libraries.
+</Description>
+        <PartOf>programming.library</PartOf>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/Date.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/List.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/Map.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/MultiMap.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/OrderedMap.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/Set.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/app.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/array2d.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/class.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/compat.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/comprehension.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/config.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/data.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/dir.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/file.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/func.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/import_into.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/init.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/input.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/lapp.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/lexer.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/luabalanced.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/operator.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/path.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/permute.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/pretty.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/seq.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/sip.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/strict.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/stringio.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/stringx.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/tablex.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/template.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/test.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/text.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/types.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/url.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/utils.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.1/pl/xml.lua</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2018-05-12</Date>
+            <Version>1.5.4</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
