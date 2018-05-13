@@ -2,12 +2,13 @@ name        : awesome
 version     : 4.2
 release     : 1
 source      :
-    - https://github.com/awesomeWM/awesome/releases/download/v4.2/awesome-4.2.tar.bz2 : 9a40a5a90152bc911b6bab922f5541ed8b230fd8847df9c995f289600752b5ca
+  - https://github.com/awesomeWM/awesome/releases/download/v4.2/awesome-4.2.tar.bz2 : 9a40a5a90152bc911b6bab922f5541ed8b230fd8847df9c995f289600752b5ca
 license     :
-    - GPL-2.0
+  - GPL-2.0
 summary     : Awesome Window Manager
+component   : desktop
 description : |
-  Awesome is a highly configurable, next generation framework window manager for X.
+    Awesome is a highly configurable, next generation framework window manager for X.
 builddeps:
   - pkgconfig(cairo)
   - pkgconfig(pango)
@@ -20,16 +21,36 @@ builddeps:
   - pkgconfig(xkbcommon-x11)
   - libxdg-basedir-devel
   - gdk-pixbuf-devel
-  - lua-devel
-  - lua-lgi
+  - luajit-devel
+  - luajit-lgi
+  - lua-ldoc
+  - xmlto
   - imagemagick-devel
   - asciidoc
   - gzip
   - dbus-devel
 rundeps:
-  lua
-  lua-lgi
+  - libxdg-basedir
+  - xcb-util-cursor
+  - xcb-util-xrm
+  - luajit
+  - luajit-lgi
+setup       : |
+    # Patch to add support for loading from config from defaults directory
+    %patch -p0 < $pkgfiles/0001-Default-Directory.patch
+
+    # Change test scripts to call luajit instead of lua
+    sed -i 's/lua -e\b/luajit -e/' build-utils/lgi-check.sh
+    sed -i 's/COMMAND lua\b/COMMAND luajit/' awesomeConfig.cmake tests/examples/CMakeLists.txt
+    sed -i 's/LUA_COV_RUNNER lua\b/LUA_COV_RUNNER luajit/' tests/examples/CMakeLists.txt
+    
+    # cmake wants an empty dir to build in
+    mkdir build && cd build
+
+    # generate makefiles
+    %cmake -DLUA_INCLUDE_DIR=/usr/include/luajit-2.0/ -DLUA_LIBRARY=/usr/lib/libluajit-5.1.so ..
 build       : |
-    %make
+    %make -C build/
 install     : |
-    %make_install
+    install -Dm00644 $pkgfiles/awesomerc.lua $installdir/usr/share/defaults/awesome/rc.lua
+    %make_install -C build/

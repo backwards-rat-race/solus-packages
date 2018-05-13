@@ -11,7 +11,7 @@ description : |
 builddeps:
   - lua-devel
   - gobject-introspection-devel
-rundepgs:
+rundeps:
   - lua
 build       : |
     %make

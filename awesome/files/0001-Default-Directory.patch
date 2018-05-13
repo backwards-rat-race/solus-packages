@@ -1,0 +1,73 @@
+Index: config.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config.h	(revision 347238b57af6a39d5575cd00497ed7b9b032a853)
++++ config.h	(date 1526230075000)
+@@ -6,7 +6,8 @@
+ #define AWESOME_IS_BIG_ENDIAN @AWESOME_IS_BIG_ENDIAN@
+ #define AWESOME_THEMES_PATH   "@AWESOME_THEMES_PATH@"
+ #define AWESOME_ICON_PATH     "@AWESOME_ICON_PATH@"
+-#define AWESOME_DEFAULT_CONF  "@AWESOME_SYSCONFDIR@/rc.lua"
++#define AWESOME_SYSTEM_CONF   "@AWESOME_SYSCONFDIR@/rc.lua"
++#define AWESOME_DEFAULT_CONF  "@AWESOME_DEFCONFDIR@/rc.lua"
+ 
+ #cmakedefine WITH_DBUS
+ #cmakedefine HAS_EXECINFO
+Index: luaa.c
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- luaa.c	(revision 347238b57af6a39d5575cd00497ed7b9b032a853)
++++ luaa.c	(date 1526231201000)
+@@ -987,10 +987,17 @@
+     }
+     p_delete(&confpath);
+ 
+-    if(callback(AWESOME_DEFAULT_CONF))
++
++    // Try load from defaults directory first
++    if (callback(AWESOME_DEFAULT_CONF))
+     {
+         return a_strdup(AWESOME_DEFAULT_CONF);
+     }
++    // Then try load the system default
++    else if(callback(AWESOME_SYSTEM_CONF))
++    {
++        return a_strdup(AWESOME_SYSTEM_CONF);
++    }
+ 
+     return NULL;
+ }
+Index: awesomeConfig.cmake
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- awesomeConfig.cmake	(revision 347238b57af6a39d5575cd00497ed7b9b032a853)
++++ awesomeConfig.cmake	(date 1526231081000)
+@@ -236,6 +236,14 @@
+     set(XDG_CONFIG_DIR ${SYSCONFDIR}/xdg CACHE PATH "xdg config directory")
+ endif()
+ 
++# setting DEFAULT_CONFIG_DIR
++if(DEFINED DEFAULT_CONFIG_DIR)
++    set(DEFAULT_CONFIG_DIR ${DEFAULT_CONFIG_DIR} CACHE PATH "default configuration directory")
++else()
++    set(DEFAULT_CONFIG_DIR ${CMAKE_INSTALL_PREFIX}/share/defaults/${PROJECT_AWE_NAME}
++            CACHE PATH "default configuration directory")
++endif()
++
+ # setting AWESOME_DATA_PATH
+ if(DEFINED AWESOME_DATA_PATH)
+     set(AWESOME_DATA_PATH ${AWESOME_DATA_PATH} CACHE PATH "awesome share directory")
+@@ -270,6 +278,7 @@
+ set(AWESOME_VERSION          ${VERSION})
+ set(AWESOME_RELEASE          ${CODENAME})
+ set(AWESOME_SYSCONFDIR       ${XDG_CONFIG_DIR}/${PROJECT_AWE_NAME})
++set(AWESOME_DEFCONFDIR       ${DEFAULT_CONFIG_DIR})
+ set(AWESOME_LUA_LIB_PATH     ${AWESOME_DATA_PATH}/lib)
+ set(AWESOME_ICON_PATH        ${AWESOME_DATA_PATH}/icons)
+ set(AWESOME_THEMES_PATH      ${AWESOME_DATA_PATH}/themes)

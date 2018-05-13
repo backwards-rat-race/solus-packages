@@ -1,0 +1,67 @@
+<PISI>
+    <Source>
+        <Name>lua-ldoc</Name>
+        <Packager>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <PartOf>programming.library</PartOf>
+        <Summary xml:lang="en">A LuaDoc-compatible documentation generation system for the standard lua runtime</Summary>
+        <Description xml:lang="en">A LuaDoc-compatible documentation generation system.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>lua-ldoc</Name>
+        <Summary xml:lang="en">A LuaDoc-compatible documentation generation system for the standard lua runtime</Summary>
+        <Description xml:lang="en">A LuaDoc-compatible documentation generation system.
+</Description>
+        <PartOf>programming.library</PartOf>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/SciTE.properties</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/coroutine.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/debug.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/global.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/globals.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/io.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/lfs.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/lpeg.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/math.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/os.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/package.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/string.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/table.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/builtin/utf8.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/config.ld</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/doc.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/_code_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/_reset_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_fixed_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_ltp.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_md_ltp.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_one_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/html/ldoc_pale_css.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/lang.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/lexer.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/markdown.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/markup.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/parse.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/prettify.lua</Path>
+            <Path fileType="data">/usr/share/lua/5.3/ldoc/tools.lua</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2018-05-12</Date>
+            <Version>1.4.6</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Mathew Nicholson</Name>
+            <Email>mathew.nicholson1@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

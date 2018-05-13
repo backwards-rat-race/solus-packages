@@ -1,0 +1,19 @@
+name        : lua-ldoc
+version     : 1.4.6
+release     : 1
+source      :
+    - https://github.com/stevedonovan/LDoc/archive/1.4.6.tar.gz : 4b73e78a0325fb3c295d015ddb60b5cee5b647cecb5c50ce8f01319b53bd536f
+license     :
+    - MIT
+summary     : A LuaDoc-compatible documentation generation system for the standard lua runtime
+component   : programming.library
+description : |
+    A LuaDoc-compatible documentation generation system.
+builddeps:
+    - lua-devel
+rundeps:
+    - lua-devel
+    - lua-penlight
+install     : |
+    mkdir -p $installdir/usr/bin
+    %make_install LUA_SHAREDIR=/usr/share/lua/5.3
